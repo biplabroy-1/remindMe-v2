@@ -9,8 +9,9 @@ const schedule = {
       "Time": "10:00 - 11:00",
       "New_Time": "10:00 AM - 11:00 AM",
       "Course_Name": "Internet and Web Technologies",
-      "Instructor": "MR. GOURANGA BAG + DR. IMA HUSSAIN",
+      "Instructor": "MR. GOURANGA BAG & DR. IMA HUSSAIN",
       "Room": "401",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Lab"
     },
@@ -19,8 +20,9 @@ const schedule = {
       "Time": "11:00 - 12:00",
       "New_Time": "11:00 AM - 12:00 PM",
       "Course_Name": "Internet and Web Technologies",
-      "Instructor": "MR. GOURANGA BAG + DR. IMA HUSSAIN",
+      "Instructor": "MR. GOURANGA BAG & DR. IMA HUSSAIN",
       "Room": "401",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Lab"
     },
@@ -31,6 +33,7 @@ const schedule = {
       "Course_Name": "Internet and Web Technologies",
       "Instructor": "MR. GOURANGA BAG",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     },
@@ -51,6 +54,7 @@ const schedule = {
       "Course_Name": "Internet and Web Technologies",
       "Instructor": "MR. GOURANGA BAG",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     },
@@ -61,6 +65,7 @@ const schedule = {
       "Course_Name": "Database Management System",
       "Instructor": "MS. DIBITA ROY",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     },
@@ -71,6 +76,7 @@ const schedule = {
       "Course_Name": "Database Management System",
       "Instructor": "MS. DIBITA ROY",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     }
@@ -83,6 +89,7 @@ const schedule = {
       "Course_Name": "Communicative English Lab",
       "Instructor": "MS. MANASI PATRA",
       "Room": "203",
+      "Building": "II",
       "Group": "Group 1",
       "Class_type": "Lab"
     },
@@ -93,6 +100,7 @@ const schedule = {
       "Course_Name": "Communicative English Lab",
       "Instructor": "MS. MANASI PATRA",
       "Room": "203",
+      "Building": "II",
       "Group": "Group 1",
       "Class_type": "Lab"
     },
@@ -103,6 +111,7 @@ const schedule = {
       "Course_Name": "Communicative English Lab",
       "Instructor": "MS. MANASI PATRA",
       "Room": "203",
+      "Building": "II",
       "Group": "Group 1",
       "Class_type": "Lab"
     },
@@ -113,6 +122,7 @@ const schedule = {
       "Course_Name": "Object Oriented Programming in JAVA Lab",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "301",
+      "Building": "VI",
       "Group": "Group 2",
       "Class_type": "Lab"
     },
@@ -133,6 +143,7 @@ const schedule = {
       "Course_Name": "Database Management System",
       "Instructor": "MS. DIBITA ROY",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     },
@@ -143,6 +154,7 @@ const schedule = {
       "Course_Name": "Vedic Mathematics",
       "Instructor": "DR. SABNAM SWOMIN",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     },
@@ -153,6 +165,7 @@ const schedule = {
       "Course_Name": "Object Oriented Programming in JAVA",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     }
@@ -165,6 +178,7 @@ const schedule = {
       "Course_Name": "Object Oriented Programming in JAVA Lab",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "403",
+      "Building": "VI",
       "Group": "Group 1",
       "Class_type": "Lab"
     },
@@ -175,6 +189,7 @@ const schedule = {
       "Course_Name": "Vedic Mathematics",
       "Instructor": "DR. SABNAM SWOMIN",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     },
@@ -185,6 +200,7 @@ const schedule = {
       "Course_Name": "Vedic Mathematics",
       "Instructor": "DR. SABNAM SWOMIN",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     },
@@ -205,6 +221,7 @@ const schedule = {
       "Course_Name": "Operating System",
       "Instructor": "MR. GOURAB DUTTA",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     },
@@ -215,6 +232,7 @@ const schedule = {
       "Course_Name": "APTITUDE",
       "Instructor": "MS. RIMA BISWAS",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     },
@@ -225,6 +243,7 @@ const schedule = {
       "Course_Name": "Object Oriented Programming in JAVA",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     },
@@ -234,8 +253,9 @@ const schedule = {
       "New_Time": "04:00 PM - 05:00 PM",
       "Course_Name": "Communicative English Lab",
       "Instructor": "MS. MANASI PATRA",
-      "Room": "203",
-      "Group": "Group 2",
+      "Room": "308",
+      "Building": "VI",
+      "Group": "All",
       "Class_type": "Lab"
     }
   ],
@@ -244,31 +264,34 @@ const schedule = {
       "Period": 2,
       "Time": "09:00 - 10:00",
       "New_Time": "09:00 AM - 10:00 AM",
-      "Course_Name": "SOFT SKILLS",
-      "Instructor": "MS. DEBOLINA SAHA CHOWDHURY",
-      "Room": "308",
-      "Group": "All",
-      "Class_type": "Theory"
+      "Course_Name": "Communicative English Lab",
+      "Instructor": "MS. MANASI PATRA",
+      "Room": "204",
+      "Building": "II",
+      "Group": "Group 2",
+      "Class_type": "Lab"
     },
     {
       "Period": 3,
       "Time": "10:00 - 11:00",
       "New_Time": "10:00 AM - 11:00 AM",
-      "Course_Name": "SOFT SKILLS",
-      "Instructor": "MS. DEBOLINA SAHA CHOWDHURY",
-      "Room": "308",
-      "Group": "All",
-      "Class_type": "Theory"
+      "Course_Name": "Communicative English Lab",
+      "Instructor": "MS. MANASI PATRA",
+      "Room": "204",
+      "Building": "II",
+      "Group": "Group 2",
+      "Class_type": "Lab"
     },
     {
       "Period": 4,
       "Time": "11:00 - 12:00",
       "New_Time": "11:00 AM - 12:00 PM",
-      "Course_Name": "APTITUDE",
-      "Instructor": "MS. RIMA BISWAS",
-      "Room": "308",
-      "Group": "All",
-      "Class_type": "Theory"
+      "Course_Name": "Communicative English Lab",
+      "Instructor": "MS. MANASI PATRA",
+      "Room": "204",
+      "Building": "II",
+      "Group": "Group 2",
+      "Class_type": "Lab"
     },
     {
       "Period": 5,
@@ -277,6 +300,7 @@ const schedule = {
       "Course_Name": "Operating System",
       "Instructor": "MR. GOURAB DUTTA",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     },
@@ -297,6 +321,7 @@ const schedule = {
       "Course_Name": "Object Oriented Programming in JAVA",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     },
@@ -307,6 +332,7 @@ const schedule = {
       "Course_Name": "SOFT SKILLS",
       "Instructor": "MS. DEBOLINA SAHA CHOWDHURY",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     },
@@ -317,6 +343,7 @@ const schedule = {
       "Course_Name": "SOFT SKILLS",
       "Instructor": "MS. DEBOLINA SAHA CHOWDHURY",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     }
@@ -329,6 +356,7 @@ const schedule = {
       "Course_Name": "Object Oriented Programming in JAVA Lab",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "414",
+      "Building": "VI",
       "Group": "Group 1",
       "Class_type": "Lab"
     },
@@ -339,6 +367,7 @@ const schedule = {
       "Course_Name": "Object Oriented Programming in JAVA Lab",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "414",
+      "Building": "VI",
       "Group": "Group 1",
       "Class_type": "Lab"
     },
@@ -349,6 +378,7 @@ const schedule = {
       "Course_Name": "Database Management System",
       "Instructor": "MS. DIBITA ROY",
       "Room": "412",
+      "Building": "VI",
       "Group": "Group 2",
       "Class_type": "Lab"
     },
@@ -359,6 +389,7 @@ const schedule = {
       "Course_Name": "Object Oriented Programming in JAVA Lab",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "414",
+      "Building": "VI",
       "Group": "Group 1",
       "Class_type": "Lab"
     },
@@ -369,6 +400,7 @@ const schedule = {
       "Course_Name": "Database Management System",
       "Instructor": "MS. DIBITA ROY",
       "Room": "412",
+      "Building": "VI",
       "Group": "Group 2",
       "Class_type": "Lab"
     },
@@ -389,6 +421,7 @@ const schedule = {
       "Course_Name": "Object Oriented Programming in JAVA Lab",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "415",
+      "Building": "VI",
       "Group": "Group 2",
       "Class_type": "Lab"
     },
@@ -399,6 +432,7 @@ const schedule = {
       "Course_Name": "Object Oriented Programming in JAVA Lab",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "415",
+      "Building": "VI",
       "Group": "Group 2",
       "Class_type": "Lab"
     },
@@ -409,6 +443,7 @@ const schedule = {
       "Course_Name": "Database Management System",
       "Instructor": "MS. DIBITA ROY",
       "Room": "409",
+      "Building": "VI",
       "Group": "Group 1",
       "Class_type": "Lab"
     },
@@ -419,6 +454,7 @@ const schedule = {
       "Course_Name": "Object Oriented Programming in JAVA Lab",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "415",
+      "Building": "VI",
       "Group": "Group 2",
       "Class_type": "Lab"
     },
@@ -429,6 +465,7 @@ const schedule = {
       "Course_Name": "Database Management System",
       "Instructor": "MS. DIBITA ROY",
       "Room": "409",
+      "Building": "VI",
       "Group": "Group 1",
       "Class_type": "Lab"
     },
@@ -439,6 +476,7 @@ const schedule = {
       "Course_Name": "Operating System",
       "Instructor": "MR. GOURAB DUTTA",
       "Room": "308",
+      "Building": "VI",
       "Group": "All",
       "Class_type": "Theory"
     }
@@ -518,9 +556,9 @@ const App = () => {
             <View className="flex-row mt-2 justify-between items-center mb-2.5">
               <View>
 
-                <Text className={`text-xs ${item.Class_type === 'Free' ? 'hidden' : ''}`}>Instructor: {item.Instructor}</Text>
+                <Text className={`text-xs w-48 ${item.Class_type === 'Free' ? 'hidden' : ''}`}>Instructor: {item.Instructor}</Text>
               </View>
-              <Text className={`${item.Class_type === 'Free' ? 'hidden' : ''}`}>Room: {item.Room}</Text>
+              <Text className={`${item.Class_type === 'Free' ? 'hidden' : ''}`}>UB {item.Building} : {item.Room}</Text>
             </View>
           </View>
         )}
