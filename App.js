@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { Text, View, FlatList } from 'react-native';
 
 const schedule = {
   Monday: [
@@ -444,9 +444,6 @@ const schedule = {
   ]
 };
 
-
-
-
 const App = () => {
   const [upcomingClasses, setUpcomingClasses] = useState([]);
   const [message, setMessage] = useState('');
@@ -482,12 +479,12 @@ const App = () => {
         return;
       }
 
-      const upcoming = classesToday.map(classInfo => {
+      const upcoming = classesToday.map((classInfo, index) => {
         const [start] = classInfo.Time.split(' - ');
         const [hour, minute] = start.split(':').map(Number);
         const classTime = new Date(now);
         classTime.setHours(hour, minute, 0, 0);
-        return { ...classInfo, time: classTime };
+        return { ...classInfo, time: classTime, id: `${index}-${classInfo.Period}-${classInfo.Time}` };
       }).sort((a, b) => a.time - b.time);
 
       setUpcomingClasses(upcoming);
@@ -504,7 +501,7 @@ const App = () => {
       </Text>
       <FlatList
         data={upcomingClasses}
-        keyExtractor={(item) => `${item.Period}-${item.Time}`}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View className={`mb-4 p-2 border-[1.5px] rounded-xl ${item.Class_type === 'Free' ? 'border-rose-300' : 'border-gray-300'}`}>
             <Text className="text-lg font-bold">
