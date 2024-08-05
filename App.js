@@ -495,22 +495,28 @@ const App = () => {
   }, []);
 
   return (
-    <View className="flex-1 p-5 pb-0 bg-white">
-      <Text className="text-center pt-2 text-2xl font-bold m-4">
+    <View className="flex-1 px-6 pb-0 bg-gray-100">
+      <Text className="text-center pt-2 text-2xl font-bold m-4 text-blue-800">
         {message || 'Today Upcoming Classes'}
       </Text>
       <FlatList
+        className='relative'
         data={upcomingClasses}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View className={`mb-4 p-2 border-[1.5px] rounded-xl ${item.Class_type === 'Free' ? 'border-rose-300' : 'border-gray-300'}`}>
-            <Text className="text-lg font-bold">
-              {item.Course_Name} {item.Class_type === 'Free' ? '' : `[${item.Class_type}]`} : {item.Group}
-            </Text>
-            <View className="flex-row mt-2.5 justify-between items-center mb-2.5 ">
+          <View className={`relative mb-4 p-4 border-[1.5px] rounded-xl ${item.Class_type === 'Free' ? 'border-red-300 bg-red-50' : 'border-gray-300 bg-white'}`}>
+            <View className='flex-row justify-between items-center'>
+              <Text className="text-xs font-medium">Time: {item.New_Time}</Text>
+              <View className="bg-red-700 rounded-full px-3 py-1">
+                <Text className='text-white font-bold text-xs'>{item.Class_type}</Text>
+              </View>
+            </View>
+            <Text className="text-lg font-bold text-slate-900">{item.Course_Name}</Text>
+            <Text className="text-lg font-bold text-stone-700">{item.Group}</Text>
+            <View className="flex-row mt-2 justify-between items-center mb-2.5">
               <View>
-                <Text className="text-xs font-medium">Time: {item.New_Time}</Text>
-                <Text className={`text-xs w-52 ${item.Class_type === 'Free' ? 'hidden' : ''}`}>Instructor: {item.Instructor}</Text>
+
+                <Text className={`text-xs ${item.Class_type === 'Free' ? 'hidden' : ''}`}>Instructor: {item.Instructor}</Text>
               </View>
               <Text className={`${item.Class_type === 'Free' ? 'hidden' : ''}`}>Room: {item.Room}</Text>
             </View>
