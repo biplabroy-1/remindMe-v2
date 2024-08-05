@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, FlatList } from 'react-native';
+import { Button, Text, View, FlatList } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
 const schedule = {
@@ -486,6 +486,7 @@ const schedule = {
 const App = () => {
   const [upcomingClasses, setUpcomingClasses] = useState([]);
   const [message, setMessage] = useState('');
+  const [selectedGroup, setSelectedGroup] = useState('Group 1');
 
   const findNextClassDay = () => {
     const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
@@ -505,6 +506,13 @@ const App = () => {
       setUpcomingClasses(schedule[nextClassDay]);
     }
   };
+
+  const handleOptionPress = (group) => {
+    setSelectedGroup(group);
+  };
+
+  const filteredClasses = upcomingClasses.filter(item => item.Group === selectedGroup || item.Group === "All");
+
 
   useEffect(() => {
     const now = new Date();
@@ -538,16 +546,20 @@ const App = () => {
       <Text className="text-center pt-2 text-2xl font-bold m-4 text-indigo-700">
         {message || 'Today Upcoming Classes'}
       </Text>
+      <View className='flex-row justify-between items-center mb-4'>
+        <Button title='Group 1' onPress={() => handleOptionPress('Group 1')} disabled={selectedGroup === 'Group 1'} />
+        <Text className='font-semibold'>{selectedGroup} Selected</Text>
+        <Button title='Group 2' onPress={() => handleOptionPress('Group 2')} disabled={selectedGroup === 'Group 2'} />
+      </View>
       <FlatList
         className='relative'
-        data={upcomingClasses}
+        data={filteredClasses}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View className={`relative mb-4 p-4 border-[1.5px] rounded-xl ${item.Class_type === 'Free' ? 'border-red-300 bg-red-50' : (item.Class_type === 'Lab' ? 'border-blue-300 bg-blue-50' : 'border-green-300 bg-green-50')}`}>
             <View className='flex-row justify-between items-center'>
               <Text className="text-xs font-medium">Time: {item.New_Time}</Text>
               <View className={`${item.Class_type === 'Free' ? 'bg-red-700' : (item.Class_type === 'Lab' ? 'bg-blue-700' : 'bg-green-700')} rounded-full px-3 py-1`}>
-
                 <Text className='text-white font-bold text-xs'>{item.Class_type}</Text>
               </View>
             </View>
@@ -555,7 +567,6 @@ const App = () => {
             <Text className="text-lg font-bold text-stone-800">{item.Group}</Text>
             <View className="flex-row mt-2 justify-between items-center mb-2.5">
               <View>
-
                 <Text className={`text-xs w-48 ${item.Class_type === 'Free' ? 'hidden' : ''}`}>Instructor: {item.Instructor}</Text>
               </View>
               <Text className={`${item.Class_type === 'Free' ? 'hidden' : ''}`}>UB {item.Building} : {item.Room}</Text>
@@ -569,3 +580,26 @@ const App = () => {
 };
 
 export default App;
+
+// import React, { useState } from 'react';
+// import { Text, View, Button, Alert } from 'react-native';
+
+// const App = () => {
+//   const [Group, setGroup] = useState('');
+
+//   const handleOptionPress = (day) => {
+//     setGroup("day", day);
+//   };
+
+//   return (
+//     <View className="flex-1 items-center justify-center p-4">
+//       <Text className="text-xl font-bold mb-4">Select a Day</Text>
+//       <View className="space-y-2">
+//         <Button title='Group 1' onPress={() => handleOptionPress()} />
+//         <Button title='Group 1' onPress={() => handleOptionPress()} />
+//       </View>
+//     </View>
+//   );
+// };
+
+// export default App;
