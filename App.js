@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, FlatList } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
 const schedule = {
   Monday: [
@@ -495,8 +496,8 @@ const App = () => {
   }, []);
 
   return (
-    <View className="flex-1 px-6 pb-0 bg-gray-100">
-      <Text className="text-center pt-2 text-2xl font-bold m-4 text-blue-800">
+    <View className="flex-1 px-6 pb-0 bg-gray-100 overflow-hidden">
+      <Text className="text-center pt-2 text-2xl font-bold m-4 text-indigo-700">
         {message || 'Today Upcoming Classes'}
       </Text>
       <FlatList
@@ -504,15 +505,16 @@ const App = () => {
         data={upcomingClasses}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View className={`relative mb-4 p-4 border-[1.5px] rounded-xl ${item.Class_type === 'Free' ? 'border-red-300 bg-red-50' : 'border-gray-300 bg-white'}`}>
+          <View className={`relative mb-4 p-4 border-[1.5px] rounded-xl ${item.Class_type === 'Free' ? 'border-red-300 bg-red-50' : (item.Class_type === 'Lab' ? 'border-blue-300 bg-blue-50' : 'border-green-300 bg-green-50')}`}>
             <View className='flex-row justify-between items-center'>
               <Text className="text-xs font-medium">Time: {item.New_Time}</Text>
-              <View className="bg-red-700 rounded-full px-3 py-1">
+              <View className={`${item.Class_type === 'Free' ? 'bg-red-700' : (item.Class_type === 'Lab' ? 'bg-blue-700' : 'bg-green-700')} rounded-full px-3 py-1`}>
+
                 <Text className='text-white font-bold text-xs'>{item.Class_type}</Text>
               </View>
             </View>
             <Text className="text-lg font-bold text-slate-900">{item.Course_Name}</Text>
-            <Text className="text-lg font-bold text-stone-700">{item.Group}</Text>
+            <Text className="text-lg font-bold text-stone-800">{item.Group}</Text>
             <View className="flex-row mt-2 justify-between items-center mb-2.5">
               <View>
 
@@ -523,6 +525,7 @@ const App = () => {
           </View>
         )}
       />
+      <StatusBar style="auto" />
     </View>
   );
 };
