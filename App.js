@@ -511,7 +511,10 @@ const App = () => {
     setSelectedGroup(group);
   };
 
-  const filteredClasses = upcomingClasses.filter(item => item.Group === selectedGroup || item.Group === "All");
+  const filteredClasses = [
+    ...upcomingClasses.filter(item => item.Group === selectedGroup || item.Group === "All"),
+    { id: 'day_end', New_Time: '', Class_type: '', Course_Name: 'Day End', Group: '', Instructor: '', Building: '', Room: '' }
+  ]
 
 
   useEffect(() => {
@@ -564,13 +567,16 @@ const App = () => {
               </View>
             </View>
             <Text className="text-lg font-bold text-slate-900">{item.Course_Name}</Text>
-            <Text className="text-lg font-bold text-stone-800">{item.Group}</Text>
-            <View className="flex-row mt-2 justify-between items-center mb-2.5">
-              <View>
-                <Text className={`text-xs w-48 ${item.Class_type === 'Free' ? 'hidden' : ''}`}>Instructor: {item.Instructor}</Text>
-              </View>
-              <Text className={`${item.Class_type === 'Free' ? 'hidden' : ''}`}>UB {item.Building} : {item.Room}</Text>
-            </View>
+            {item.id !== 'day_end' && (
+              <>
+                <Text className={`text-lg font-bold text-stone-800 ${item.Class_type === 'Free' ? 'hidden' : ''}`}>{item.Group}</Text><View className="flex-row mt-2 justify-between items-center mb-2.5">
+                  <View>
+                    <Text className={`text-xs w-48 ${item.Class_type === 'Free' ? 'hidden' : ''}`}>Instructor: {item.Instructor}</Text>
+                  </View>
+                  <Text className={`${item.Class_type === 'Free' ? 'hidden' : ''}`}>UB {item.Building} : {item.Room}</Text>
+                </View>
+              </>
+            )}
           </View>
         )}
       />
