@@ -531,13 +531,11 @@ const App = () => {
   const [upcomingClasses, setUpcomingClasses] = useState([]);
   const [message, setMessage] = useState('');
   const [selectedGroup, setSelectedGroup] = useState('Group 1');
-  const [currentClass, setCurrentClass] = useState({});
+  const [currentClass, setCurrentClass] = useState(null);
 
-  const getCurrentTime = () => {
-    return new Date().setSeconds(0, 0);
-  };
+  const getCurrentTime = () => new Date().setSeconds(0, 0);
 
-  const findNextClassDay = () => {
+  const findNextClassDay = useCallback(() => {
     const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
     const todayIndex = daysOfWeek.indexOf(new Date().toLocaleDateString('en-US', { weekday: 'long' }));
     let nextClassDay = '';
@@ -554,7 +552,7 @@ const App = () => {
       setMessage(`Next class day is ${nextClassDay}.`);
       setUpcomingClasses(schedule[nextClassDay]);
     }
-  };
+  }, []);
 
   const handleOptionPress = async () => {
     const newGroup = selectedGroup === 'Group 1' ? 'Group 2' : 'Group 1';
@@ -565,79 +563,72 @@ const App = () => {
   const updateUpcomingClasses = useCallback(() => {
     const now = new Date();
     const day = now.toLocaleDateString('en-US', { weekday: 'long' });
+    const currentTime = getCurrentTime();
 
     const updateClassesForDay = (classesToday) => {
-      const currentTime = getCurrentTime();
       const classesWithTime = classesToday
-        .map((classInfo, index) => {
+        .filter((classInfo) => classInfo.Group === selectedGroup || classInfo.Group === 'All')
+        .map((classInfo) => {
           const [start] = classInfo.Time.split(' - ');
           const [hour, minute] = start.split(':').map(Number);
           const classTime = new Date(now);
           classTime.setHours(hour, minute, 0, 0);
-          return { ...classInfo, time: classTime};
+          return { ...classInfo, time: classTime };
         });
 
-      const currentClass = classesWithTime.find(classInfo => classInfo.time <= currentTime && currentTime < classInfo.time.getTime() + 60 * 60 * 1000); // Assuming class duration is 1 hour
+      const currentClass = classesWithTime.find((classInfo) =>
+        classInfo.time <= currentTime && currentTime < classInfo.time.getTime() + 60 * 60 * 1000
+      );
+
       const upcoming = classesWithTime
-        .filter((classInfo) => classInfo.time > currentTime) // Filter only future classes
+        .filter((classInfo) => classInfo.time > currentTime)
         .sort((a, b) => a.time - b.time);
 
-      if (currentClass) {
-        setUpcomingClasses([currentClass, ...upcoming]);
-        setMessage('Current class');
-        setCurrentClass(currentClass);
-      } else {
-        setUpcomingClasses(upcoming);
-      }
+      setUpcomingClasses(currentClass ? [currentClass, ...upcoming] : upcoming);
+      setMessage(currentClass ? 'Current class' : 'No current class');
+      setCurrentClass(currentClass || null);
     };
 
     if (schedule[day]) {
-      const classesToday = schedule[day];
-      if (classesToday.length === 0) {
+      if (schedule[day].length === 0) {
         setMessage('No classes today.');
         findNextClassDay();
-        return;
+      } else {
+        updateClassesForDay(schedule[day]);
       }
-      updateClassesForDay(classesToday);
     } else {
       setMessage('No classes today.');
       findNextClassDay();
     }
-  }, []);
+  }, [findNextClassDay, selectedGroup]);
 
   useEffect(() => {
     const loadSelectedGroup = async () => {
       try {
         const savedGroup = await AsyncStorage.getItem('selectedGroup');
-        if (savedGroup) {
-          setSelectedGroup(savedGroup);
-        }
+        if (savedGroup) setSelectedGroup(savedGroup);
       } catch (error) {
         console.error('Failed to load selected group:', error);
       }
     };
 
-    loadSelectedGroup(); // Load the saved group on component mount
-    updateUpcomingClasses(); // Initial update
+    loadSelectedGroup();
+    updateUpcomingClasses();
 
-    const id = setInterval(updateUpcomingClasses, 60000); // Check every minute
-    return () => {
-      clearInterval(id); // Cleanup interval on component unmount
-    };
+    const id = setInterval(updateUpcomingClasses, 60000);
+    return () => clearInterval(id);
   }, [updateUpcomingClasses]);
 
   const filteredClasses = upcomingClasses
-    .filter(item => item.Group === selectedGroup || item.Group === "All")
-    .filter(item => item.id !== currentClass.id); // Exclude currentClass
-
-  const noUpcomingClassesMessage = filteredClasses.length === 0 ? 'Hey, All Classes Are Done.' : '';
+    .filter(item => item.Group === selectedGroup || item.Group === 'All')
+    .filter(item => item.id !== currentClass?.id);
 
   return (
     <View className="flex-1 px-6 pb-0 bg-gray-100 overflow-hidden">
       <Text className="text-center pt-4 text-2xl font-bold m-4 text-indigo-700">
-        {message || noUpcomingClassesMessage}
+        {message}
       </Text>
-      {!currentClass ? (
+      {currentClass && (
         <View className={`relative mb-4 p-4 border-[1.5px] rounded-xl ${currentClass.Class_type === 'Free' ? 'border-red-300 bg-red-50' : (currentClass.Class_type === 'Lab' ? 'border-blue-300 bg-blue-50' : 'border-green-300 bg-green-50')}`}>
           <View className='flex-row justify-between items-center'>
             <Text className="text-xs font-medium">Time: {currentClass.New_Time}</Text>
@@ -645,48 +636,49 @@ const App = () => {
               <Text className='text-white font-bold text-xs'>{currentClass.Class_type}</Text>
             </View>
           </View>
-          <Text className="text-lg font-bold text-slate-900">{currentClass.Course_Name}</Text>
-          {currentClass.id !== 'day_end' && (
-            <>
-              <Text className={`text-lg font-bold text-stone-800 ${currentClass.Class_type === 'Free' ? 'hidden' : ''}`}>{currentClass.Group}</Text>
-              <View className="flex-row mt-2 justify-between items-center mb-2.5">
-                <View>
-                  <Text className={`text-xs w-48 ${currentClass.Class_type === 'Free' ? 'hidden' : ''}`}>Instructor: {currentClass.Instructor}</Text>
-                </View>
-                <Text className={`${currentClass.Class_type === 'Free' ? 'hidden' : ''}`}>UB {currentClass.Building} : {currentClass.Room}</Text>
-              </View>
-            </>
-          )}
+          <Text className="text-lg font-bold text-slate-900">{currentClass.Course_Name} {currentClass.id}</Text>
+          <Text className={`text-lg font-bold text-stone-800 ${currentClass.Class_type === 'Free' ? 'hidden' : ''}`}>{currentClass.Group}</Text>
+          <View className="flex-row mt-2 justify-between items-center mb-2.5">
+            <View>
+              <Text className={`text-xs w-48 ${currentClass.Class_type === 'Free' ? 'hidden' : ''}`}>Instructor: {currentClass.Instructor}</Text>
+            </View>
+            <Text className={`${currentClass.Class_type === 'Free' ? 'hidden' : ''}`}>UB {currentClass.Building} : {currentClass.Room}</Text>
+          </View>
         </View>
-      ) : ''}
+      )}
       <View className='flex-row justify-between items-center mb-4'>
         <Button title={`I Am ${selectedGroup !== 'Group 1' ? 'Group 2' : 'Group 1'}`} onPress={handleOptionPress} />
         <Text className='font-semibold'>{selectedGroup} Selected</Text>
       </View>
-      {filteredClasses && <FlatList
-        className='relative'
-        data={filteredClasses}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View className={`relative mb-4 p-4 border-[1.5px] rounded-xl ${item.Class_type === 'Free' ? 'border-red-300 bg-red-50' : (item.Class_type === 'Lab' ? 'border-blue-300 bg-blue-50' : 'border-green-300 bg-green-50')}`}>
-            <View className='flex-row justify-between items-center'>
-              <Text className="text-xs font-medium">Time: {item.New_Time}</Text>
-              <View className={`${item.Class_type === 'Free' ? 'bg-red-700' : (item.Class_type === 'Lab' ? 'bg-blue-700' : 'bg-green-700')} rounded-full px-3 py-1`}>
-                <Text className='text-white font-bold text-xs'>{item.Class_type}</Text>
+      {filteredClasses.length > 0 ? (
+        <FlatList
+          className='relative'
+          data={filteredClasses}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <View className={`relative mb-4 p-4 border-[1.5px] rounded-xl ${item.Class_type === 'Free' ? 'border-red-300 bg-red-50' : (item.Class_type === 'Lab' ? 'border-blue-300 bg-blue-50' : 'border-green-300 bg-green-50')}`}>
+              <View className='flex-row justify-between items-center'>
+                <Text className="text-xs font-medium">Time: {item.New_Time}</Text>
+                <View className={`${item.Class_type === 'Free' ? 'bg-red-700' : (item.Class_type === 'Lab' ? 'bg-blue-700' : 'bg-green-700')} rounded-full px-3 py-1`}>
+                  <Text className='text-white font-bold text-xs'>{item.Class_type}</Text>
+                </View>
+              </View>
+              <Text className="text-lg font-bold text-slate-900">{item.Course_Name} {item.id}</Text>
+              <Text className={`text-lg font-bold text-stone-800 ${item.Class_type === 'Free' ? 'hidden' : ''}`}>{item.Group}</Text>
+              <View className="flex-row mt-2 justify-between items-center mb-2.5">
+                <View>
+                  <Text className={`text-xs w-48 ${item.Class_type === 'Free' ? 'hidden' : ''}`}>Instructor: {item.Instructor}</Text>
+                </View>
+                <Text className={`${item.Class_type === 'Free' ? 'hidden' : ''}`}>UB {item.Building} : {item.Room}</Text>
               </View>
             </View>
-            <Text className="text-lg font-bold text-slate-900">{item.Course_Name}</Text>
-            <Text className={`text-lg font-bold text-stone-800 ${item.Class_type === 'Free' ? 'hidden' : ''}`}>{item.Group}</Text>
-            <View className="flex-row mt-2 justify-between items-center mb-2.5">
-              <View>
-                <Text className={`text-xs w-48 ${item.Class_type === 'Free' ? 'hidden' : ''}`}>Instructor: {item.Instructor}</Text>
-              </View>
-              <Text className={`${item.Class_type === 'Free' ? 'hidden' : ''}`}>UB {item.Building} : {item.Room}</Text>
-            </View>
-          </View>
-        )}
-      />}
-
+          )}
+        />
+      ) : (
+        <View className='flex-1 items-center justify-center'>
+          <Text className='text-2xl text-center'>Kal Dekha Jayega</Text>
+        </View>
+      )}
       <StatusBar style="auto" />
     </View>
   );
