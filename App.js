@@ -14,7 +14,7 @@ const schedule = {
       "Instructor": "MR. GOURANGA BAG & DR. IMA HUSSAIN",
       "Room": "401",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Lab"
     },
     {
@@ -26,7 +26,7 @@ const schedule = {
       "Instructor": "MR. GOURANGA BAG & DR. IMA HUSSAIN",
       "Room": "401",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Lab"
     },
     {
@@ -38,7 +38,7 @@ const schedule = {
       "Instructor": "MR. GOURANGA BAG",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     },
     {
@@ -49,7 +49,7 @@ const schedule = {
       "Course_Name": "Free",
       "Instructor": "",
       "Room": "",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Free"
     },
     {
@@ -61,7 +61,7 @@ const schedule = {
       "Instructor": "MR. GOURANGA BAG",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     },
     {
@@ -73,7 +73,7 @@ const schedule = {
       "Instructor": "MS. DIBITA ROY",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     },
     {
@@ -85,7 +85,7 @@ const schedule = {
       "Instructor": "MS. DIBITA ROY",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     }
   ],
@@ -146,7 +146,7 @@ const schedule = {
       "Course_Name": "Free",
       "Instructor": "",
       "Room": "",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Free"
     },
     {
@@ -158,7 +158,7 @@ const schedule = {
       "Instructor": "MS. DIBITA ROY",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     },
     {
@@ -170,7 +170,7 @@ const schedule = {
       "Instructor": "DR. SABNAM SWOMIN",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     },
     {
@@ -182,7 +182,7 @@ const schedule = {
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     }
   ],
@@ -208,7 +208,7 @@ const schedule = {
       "Instructor": "DR. SABNAM SWOMIN",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     },
     {
@@ -220,7 +220,7 @@ const schedule = {
       "Instructor": "DR. SABNAM SWOMIN",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     },
     {
@@ -231,7 +231,7 @@ const schedule = {
       "Course_Name": "Free",
       "Instructor": "",
       "Room": "",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Free"
     },
     {
@@ -243,7 +243,7 @@ const schedule = {
       "Instructor": "MR. GOURAB DUTTA",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     },
     {
@@ -255,7 +255,7 @@ const schedule = {
       "Instructor": "MS. RIMA BISWAS",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     },
     {
@@ -267,7 +267,7 @@ const schedule = {
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     },
     {
@@ -279,7 +279,7 @@ const schedule = {
       "Instructor": "MS. MANASI PATRA",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Lab"
     }
   ],
@@ -329,7 +329,7 @@ const schedule = {
       "Instructor": "MR. GOURAB DUTTA",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     },
     {
@@ -340,7 +340,7 @@ const schedule = {
       "Course_Name": "Free",
       "Instructor": "",
       "Room": "",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Free"
     },
     {
@@ -352,7 +352,7 @@ const schedule = {
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     },
     {
@@ -364,7 +364,7 @@ const schedule = {
       "Instructor": "MS. DEBOLINA SAHA CHOWDHURY",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     },
     {
@@ -376,7 +376,7 @@ const schedule = {
       "Instructor": "MS. DEBOLINA SAHA CHOWDHURY",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     }
   ],
@@ -449,7 +449,7 @@ const schedule = {
       "Course_Name": "Free",
       "Instructor": "",
       "Room": "",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Free"
     },
     {
@@ -521,7 +521,7 @@ const schedule = {
       "Instructor": "MR. GOURAB DUTTA",
       "Room": "308",
       "Building": "VI",
-      "Group": "All",
+      "Group": "All Group",
       "Class_type": "Theory"
     }
   ]
@@ -692,6 +692,7 @@ const App = () => {
         />
       ) : (
         <View className='flex-1 items-center justify-center'>
+          <Text className='text-2xl text-center'>Or Baki</Text>
           <Text className='text-2xl text-center'>Kal Dekha Jayega</Text>
         </View>
       )}
