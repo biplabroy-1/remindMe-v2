@@ -95,7 +95,7 @@ const schedule = {
       "Period": 4,
       "Time": "11:00 - 12:00",
       "New_Time": "11:00 AM - 12:00 PM",
-      "Course_Name": "Communicative English Lab",
+      "Course_Name": "Communicative English",
       "Instructor": "MS. MANASI PATRA",
       "Room": "203",
       "Building": "II",
@@ -107,7 +107,7 @@ const schedule = {
       "Period": 5,
       "Time": "12:00 - 13:00",
       "New_Time": "12:00 PM - 01:00 PM",
-      "Course_Name": "Communicative English Lab",
+      "Course_Name": "Communicative English",
       "Instructor": "MS. MANASI PATRA",
       "Room": "203",
       "Building": "II",
@@ -119,7 +119,7 @@ const schedule = {
       "Period": 6,
       "Time": "13:00 - 14:00",
       "New_Time": "01:00 PM - 02:00 PM",
-      "Course_Name": "Communicative English Lab",
+      "Course_Name": "Communicative English",
       "Instructor": "MS. MANASI PATRA",
       "Room": "203",
       "Building": "II",
@@ -131,7 +131,7 @@ const schedule = {
       "Period": 6,
       "Time": "13:00 - 14:00",
       "New_Time": "01:00 PM - 02:00 PM",
-      "Course_Name": "Object Oriented Programming in JAVA Lab",
+      "Course_Name": "Object Oriented Programming in JAVA",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "301",
       "Building": "VI",
@@ -192,7 +192,7 @@ const schedule = {
       "Period": 2,
       "Time": "09:00 - 10:00",
       "New_Time": "09:00 AM - 10:00 AM",
-      "Course_Name": "Object Oriented Programming in JAVA Lab",
+      "Course_Name": "Object Oriented Programming in JAVA",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "403",
       "Building": "VI",
@@ -275,7 +275,7 @@ const schedule = {
       "Period": 9,
       "Time": "16:00 - 17:00",
       "New_Time": "04:00 PM - 05:00 PM",
-      "Course_Name": "Communicative English Lab",
+      "Course_Name": "Communicative English",
       "Instructor": "MS. MANASI PATRA",
       "Room": "308",
       "Building": "VI",
@@ -289,7 +289,7 @@ const schedule = {
       "Period": 2,
       "Time": "09:00 - 10:00",
       "New_Time": "09:00 AM - 10:00 AM",
-      "Course_Name": "Communicative English Lab",
+      "Course_Name": "Communicative English",
       "Instructor": "MS. MANASI PATRA",
       "Room": "204",
       "Building": "II",
@@ -301,7 +301,7 @@ const schedule = {
       "Period": 3,
       "Time": "10:00 - 11:00",
       "New_Time": "10:00 AM - 11:00 AM",
-      "Course_Name": "Communicative English Lab",
+      "Course_Name": "Communicative English",
       "Instructor": "MS. MANASI PATRA",
       "Room": "204",
       "Building": "II",
@@ -313,7 +313,7 @@ const schedule = {
       "Period": 4,
       "Time": "11:00 - 12:00",
       "New_Time": "11:00 AM - 12:00 PM",
-      "Course_Name": "Communicative English Lab",
+      "Course_Name": "Communicative English",
       "Instructor": "MS. MANASI PATRA",
       "Room": "204",
       "Building": "II",
@@ -386,7 +386,7 @@ const schedule = {
       "Period": 1,
       "Time": "08:00 - 09:00",
       "New_Time": "08:00 AM - 09:00 AM",
-      "Course_Name": "Object Oriented Programming in JAVA Lab",
+      "Course_Name": "Object Oriented Programming in JAVA",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "414",
       "Building": "VI",
@@ -398,7 +398,7 @@ const schedule = {
       "Period": 2,
       "Time": "09:00 - 10:00",
       "New_Time": "09:00 AM - 10:00 AM",
-      "Course_Name": "Object Oriented Programming in JAVA Lab",
+      "Course_Name": "Object Oriented Programming in JAVA",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "414",
       "Building": "VI",
@@ -422,7 +422,7 @@ const schedule = {
       "Period": 3,
       "Time": "10:00 - 11:00",
       "New_Time": "10:00 AM - 11:00 AM",
-      "Course_Name": "Object Oriented Programming in JAVA Lab",
+      "Course_Name": "Object Oriented Programming in JAVA",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "414",
       "Building": "VI",
@@ -457,7 +457,7 @@ const schedule = {
       "Period": 5,
       "Time": "12:00 - 13:00",
       "New_Time": "12:00 PM - 01:00 PM",
-      "Course_Name": "Object Oriented Programming in JAVA Lab",
+      "Course_Name": "Object Oriented Programming in JAVA",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "415",
       "Building": "VI",
@@ -469,7 +469,7 @@ const schedule = {
       "Period": 6,
       "Time": "13:00 - 14:00",
       "New_Time": "01:00 PM - 02:00 PM",
-      "Course_Name": "Object Oriented Programming in JAVA Lab",
+      "Course_Name": "Object Oriented Programming in JAVA",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "415",
       "Building": "VI",
@@ -493,7 +493,7 @@ const schedule = {
       "Period": 7,
       "Time": "14:00 - 15:00",
       "New_Time": "02:00 PM - 03:00 PM",
-      "Course_Name": "Object Oriented Programming in JAVA Lab",
+      "Course_Name": "Object Oriented Programming in JAVA",
       "Instructor": "MR. KISHORE KUMAR RAY",
       "Room": "415",
       "Building": "VI",
@@ -625,10 +625,11 @@ const App = () => {
 
   return (
     <View className="flex-1 px-6 pb-0 bg-gray-100 overflow-hidden">
-      <Text className="text-center pt-4 text-2xl font-bold m-4 text-indigo-700">
+      <Text className="text-center pt-6 text-2xl font-bold m-4 text-indigo-700">
         {message}
       </Text>
-      {currentClass && (
+
+      {currentClass ? (
         <View className={`relative mb-4 p-4 border-[1.5px] rounded-xl ${currentClass.Class_type === 'Free' ? 'border-red-300 bg-red-50' : (currentClass.Class_type === 'Lab' ? 'border-blue-300 bg-blue-50' : 'border-green-300 bg-green-50')}`}>
           <View className='flex-row justify-between items-center'>
             <Text className="text-xs font-medium">Time: {currentClass.New_Time}</Text>
@@ -636,7 +637,7 @@ const App = () => {
               <Text className='text-white font-bold text-xs'>{currentClass.Class_type}</Text>
             </View>
           </View>
-          <Text className="text-lg font-bold text-slate-900">{currentClass.Course_Name} {currentClass.id}</Text>
+          <Text className="text-lg font-bold text-slate-900">{currentClass.Course_Name}</Text>
           <Text className={`text-lg font-bold text-stone-800 ${currentClass.Class_type === 'Free' ? 'hidden' : ''}`}>{currentClass.Group}</Text>
           <View className="flex-row mt-2 justify-between items-center mb-2.5">
             <View>
@@ -645,11 +646,26 @@ const App = () => {
             <Text className={`${currentClass.Class_type === 'Free' ? 'hidden' : ''}`}>UB {currentClass.Building} : {currentClass.Room}</Text>
           </View>
         </View>
-      )}
-      <View className='flex-row justify-between items-center mb-4'>
+      ) : <View>
+        <View className={`relative mb-4 p-4 border-[1.5px] rounded-xl border-blue-300 bg-blue-50`}>
+          <View className='flex-row justify-between items-center'>
+            <Text className="text-xs font-medium"></Text>
+            <View className={` rounded-full px-3 py-1`}>
+              <Text className='text-white font-bold text-xs'></Text>
+            </View>
+          </View>
+          <Text className="text-lg text-center font-bold text-slate-900">No Class Running 😴</Text>
+          <View className="flex-row mt-2 justify-between items-center mb-2.5">
+          </View>
+        </View>
+      </View>
+      }
+
+      <View className='flex-row justify-between items-center mb-2'>
         <Button title={`I Am ${selectedGroup !== 'Group 1' ? 'Group 2' : 'Group 1'}`} onPress={handleOptionPress} />
         <Text className='font-semibold'>{selectedGroup} Selected</Text>
       </View>
+
       {filteredClasses.length > 0 ? (
         <FlatList
           className='relative'
@@ -663,7 +679,7 @@ const App = () => {
                   <Text className='text-white font-bold text-xs'>{item.Class_type}</Text>
                 </View>
               </View>
-              <Text className="text-lg font-bold text-slate-900">{item.Course_Name} {item.id}</Text>
+              <Text className="text-lg font-bold text-slate-900">{item.Course_Name}</Text>
               <Text className={`text-lg font-bold text-stone-800 ${item.Class_type === 'Free' ? 'hidden' : ''}`}>{item.Group}</Text>
               <View className="flex-row mt-2 justify-between items-center mb-2.5">
                 <View>
