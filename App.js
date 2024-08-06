@@ -511,11 +511,9 @@ const App = () => {
     setSelectedGroup(group);
   };
 
-  const filteredClasses = [
-    ...upcomingClasses.filter(item => item.Group === selectedGroup || item.Group === "All"),
-    { id: 'day_end', New_Time: '', Class_type: '', Course_Name: 'Day End', Group: '', Instructor: '', Building: '', Room: '' }
-  ]
-
+  const getCurrentTime = () => {
+    return new Date().setSeconds(0, 0); // Get current time without seconds and milliseconds
+  };
 
   useEffect(() => {
     const now = new Date();
@@ -529,13 +527,16 @@ const App = () => {
         return;
       }
 
-      const upcoming = classesToday.map((classInfo, index) => {
-        const [start] = classInfo.Time.split(' - ');
-        const [hour, minute] = start.split(':').map(Number);
-        const classTime = new Date(now);
-        classTime.setHours(hour, minute, 0, 0);
-        return { ...classInfo, time: classTime, id: `${index}-${classInfo.Period}-${classInfo.Time}` };
-      }).sort((a, b) => a.time - b.time);
+      const upcoming = classesToday
+        .map((classInfo, index) => {
+          const [start] = classInfo.Time.split(' - ');
+          const [hour, minute] = start.split(':').map(Number);
+          const classTime = new Date(now);
+          classTime.setHours(hour, minute, 0, 0);
+          return { ...classInfo, time: classTime, id: `${index}-${classInfo.Period}-${classInfo.Time}` };
+        })
+        .filter((classInfo) => classInfo.time > getCurrentTime()) // Filter only future classes
+        .sort((a, b) => a.time - b.time);
 
       setUpcomingClasses(upcoming);
     } else {
@@ -543,6 +544,11 @@ const App = () => {
       findNextClassDay();
     }
   }, []);
+
+  const filteredClasses = [
+    ...upcomingClasses.filter(item => item.Group === selectedGroup || item.Group === "All"),
+    { id: 'day_end', New_Time: '', Class_type: '', Course_Name: 'Day End', Group: '', Instructor: '', Building: '', Room: '' }
+  ];
 
   return (
     <View className="flex-1 px-6 pb-0 bg-gray-100 overflow-hidden">
@@ -569,7 +575,8 @@ const App = () => {
             <Text className="text-lg font-bold text-slate-900">{item.Course_Name}</Text>
             {item.id !== 'day_end' && (
               <>
-                <Text className={`text-lg font-bold text-stone-800 ${item.Class_type === 'Free' ? 'hidden' : ''}`}>{item.Group}</Text><View className="flex-row mt-2 justify-between items-center mb-2.5">
+                <Text className={`text-lg font-bold text-stone-800 ${item.Class_type === 'Free' ? 'hidden' : ''}`}>{item.Group}</Text>
+                <View className="flex-row mt-2 justify-between items-center mb-2.5">
                   <View>
                     <Text className={`text-xs w-48 ${item.Class_type === 'Free' ? 'hidden' : ''}`}>Instructor: {item.Instructor}</Text>
                   </View>
