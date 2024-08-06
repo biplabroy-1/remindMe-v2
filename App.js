@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const schedule = {
   Monday: [
     {
+      "id": 1,
       "Period": 3,
       "Time": "10:00 - 11:00",
       "New_Time": "10:00 AM - 11:00 AM",
@@ -17,6 +18,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 2,
       "Period": 4,
       "Time": "11:00 - 12:00",
       "New_Time": "11:00 AM - 12:00 PM",
@@ -28,6 +30,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 3,
       "Period": 5,
       "Time": "12:00 - 13:00",
       "New_Time": "12:00 PM - 01:00 PM",
@@ -39,6 +42,7 @@ const schedule = {
       "Class_type": "Theory"
     },
     {
+      "id": 4,
       "Period": 6,
       "Time": "13:00 - 14:00",
       "New_Time": "01:00 PM - 02:00 PM",
@@ -49,6 +53,7 @@ const schedule = {
       "Class_type": "Free"
     },
     {
+      "id": 5,
       "Period": 7,
       "Time": "14:00 - 15:00",
       "New_Time": "02:00 PM - 03:00 PM",
@@ -60,6 +65,7 @@ const schedule = {
       "Class_type": "Theory"
     },
     {
+      "id": 6,
       "Period": 8,
       "Time": "15:00 - 16:00",
       "New_Time": "03:00 PM - 04:00 PM",
@@ -71,6 +77,7 @@ const schedule = {
       "Class_type": "Theory"
     },
     {
+      "id": 7,
       "Period": 9,
       "Time": "16:00 - 17:00",
       "New_Time": "04:00 PM - 05:00 PM",
@@ -84,6 +91,7 @@ const schedule = {
   ],
   Tuesday: [
     {
+      "id": 8,
       "Period": 4,
       "Time": "11:00 - 12:00",
       "New_Time": "11:00 AM - 12:00 PM",
@@ -95,6 +103,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 9,
       "Period": 5,
       "Time": "12:00 - 13:00",
       "New_Time": "12:00 PM - 01:00 PM",
@@ -106,6 +115,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 10,
       "Period": 6,
       "Time": "13:00 - 14:00",
       "New_Time": "01:00 PM - 02:00 PM",
@@ -117,6 +127,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 11,
       "Period": 6,
       "Time": "13:00 - 14:00",
       "New_Time": "01:00 PM - 02:00 PM",
@@ -128,6 +139,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 12,
       "Period": 7,
       "Time": "14:00 - 15:00",
       "New_Time": "02:00 PM - 03:00 PM",
@@ -138,6 +150,7 @@ const schedule = {
       "Class_type": "Free"
     },
     {
+      "id": 13,
       "Period": 8,
       "Time": "15:00 - 16:00",
       "New_Time": "03:00 PM - 04:00 PM",
@@ -149,6 +162,7 @@ const schedule = {
       "Class_type": "Theory"
     },
     {
+      "id": 14,
       "Period": 9,
       "Time": "16:00 - 17:00",
       "New_Time": "04:00 PM - 05:00 PM",
@@ -160,6 +174,7 @@ const schedule = {
       "Class_type": "Theory"
     },
     {
+      "id": 15,
       "Period": 10,
       "Time": "17:00 - 18:00",
       "New_Time": "05:00 PM - 06:00 PM",
@@ -173,6 +188,7 @@ const schedule = {
   ],
   Wednesday: [
     {
+      "id": 16,
       "Period": 2,
       "Time": "09:00 - 10:00",
       "New_Time": "09:00 AM - 10:00 AM",
@@ -184,6 +200,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 17,
       "Period": 3,
       "Time": "10:00 - 11:00",
       "New_Time": "10:00 AM - 11:00 AM",
@@ -195,6 +212,7 @@ const schedule = {
       "Class_type": "Theory"
     },
     {
+      "id": 18,
       "Period": 4,
       "Time": "11:00 - 12:00",
       "New_Time": "11:00 AM - 12:00 PM",
@@ -206,6 +224,7 @@ const schedule = {
       "Class_type": "Theory"
     },
     {
+      "id": 19,
       "Period": 5,
       "Time": "12:00 - 13:00",
       "New_Time": "12:00 PM - 01:00 PM",
@@ -216,6 +235,7 @@ const schedule = {
       "Class_type": "Free"
     },
     {
+      "id": 20,
       "Period": 6,
       "Time": "13:00 - 14:00",
       "New_Time": "01:00 PM - 02:00 PM",
@@ -227,6 +247,7 @@ const schedule = {
       "Class_type": "Theory"
     },
     {
+      "id": 21,
       "Period": 7,
       "Time": "14:00 - 15:00",
       "New_Time": "02:00 PM - 03:00 PM",
@@ -238,6 +259,7 @@ const schedule = {
       "Class_type": "Theory"
     },
     {
+      "id": 22,
       "Period": 8,
       "Time": "15:00 - 16:00",
       "New_Time": "03:00 PM - 04:00 PM",
@@ -249,6 +271,7 @@ const schedule = {
       "Class_type": "Theory"
     },
     {
+      "id": 23,
       "Period": 9,
       "Time": "16:00 - 17:00",
       "New_Time": "04:00 PM - 05:00 PM",
@@ -262,6 +285,7 @@ const schedule = {
   ],
   Thursday: [
     {
+      "id": 24,
       "Period": 2,
       "Time": "09:00 - 10:00",
       "New_Time": "09:00 AM - 10:00 AM",
@@ -273,6 +297,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 25,
       "Period": 3,
       "Time": "10:00 - 11:00",
       "New_Time": "10:00 AM - 11:00 AM",
@@ -284,6 +309,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 26,
       "Period": 4,
       "Time": "11:00 - 12:00",
       "New_Time": "11:00 AM - 12:00 PM",
@@ -295,6 +321,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 27,
       "Period": 5,
       "Time": "12:00 - 13:00",
       "New_Time": "12:00 PM - 01:00 PM",
@@ -306,6 +333,7 @@ const schedule = {
       "Class_type": "Theory"
     },
     {
+      "id": 28,
       "Period": 6,
       "Time": "13:00 - 14:00",
       "New_Time": "01:00 PM - 02:00 PM",
@@ -316,6 +344,7 @@ const schedule = {
       "Class_type": "Free"
     },
     {
+      "id": 29,
       "Period": 7,
       "Time": "14:00 - 15:00",
       "New_Time": "02:00 PM - 03:00 PM",
@@ -327,6 +356,7 @@ const schedule = {
       "Class_type": "Theory"
     },
     {
+      "id": 30,
       "Period": 8,
       "Time": "15:00 - 16:00",
       "New_Time": "03:00 PM - 04:00 PM",
@@ -338,6 +368,7 @@ const schedule = {
       "Class_type": "Theory"
     },
     {
+      "id": 31,
       "Period": 9,
       "Time": "16:00 - 17:00",
       "New_Time": "04:00 PM - 05:00 PM",
@@ -351,6 +382,7 @@ const schedule = {
   ],
   Friday: [
     {
+      "id": 32,
       "Period": 1,
       "Time": "08:00 - 09:00",
       "New_Time": "08:00 AM - 09:00 AM",
@@ -362,6 +394,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 33,
       "Period": 2,
       "Time": "09:00 - 10:00",
       "New_Time": "09:00 AM - 10:00 AM",
@@ -373,6 +406,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 34,
       "Period": 2,
       "Time": "09:00 - 10:00",
       "New_Time": "09:00 AM - 10:00 AM",
@@ -384,6 +418,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 35,
       "Period": 3,
       "Time": "10:00 - 11:00",
       "New_Time": "10:00 AM - 11:00 AM",
@@ -395,6 +430,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 36,
       "Period": 3,
       "Time": "10:00 - 11:00",
       "New_Time": "10:00 AM - 11:00 AM",
@@ -406,6 +442,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 37,
       "Period": 4,
       "Time": "11:00 - 12:00",
       "New_Time": "11:00 AM - 12:00 PM",
@@ -416,6 +453,7 @@ const schedule = {
       "Class_type": "Free"
     },
     {
+      "id": 38,
       "Period": 5,
       "Time": "12:00 - 13:00",
       "New_Time": "12:00 PM - 01:00 PM",
@@ -427,6 +465,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 39,
       "Period": 6,
       "Time": "13:00 - 14:00",
       "New_Time": "01:00 PM - 02:00 PM",
@@ -438,6 +477,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 40,
       "Period": 6,
       "Time": "13:00 - 14:00",
       "New_Time": "01:00 PM - 02:00 PM",
@@ -449,6 +489,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 41,
       "Period": 7,
       "Time": "14:00 - 15:00",
       "New_Time": "02:00 PM - 03:00 PM",
@@ -460,6 +501,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 42,
       "Period": 7,
       "Time": "14:00 - 15:00",
       "New_Time": "02:00 PM - 03:00 PM",
@@ -471,6 +513,7 @@ const schedule = {
       "Class_type": "Lab"
     },
     {
+      "id": 43,
       "Period": 8,
       "Time": "15:00 - 16:00",
       "New_Time": "03:00 PM - 04:00 PM",
@@ -531,7 +574,7 @@ const App = () => {
           const [hour, minute] = start.split(':').map(Number);
           const classTime = new Date(now);
           classTime.setHours(hour, minute, 0, 0);
-          return { ...classInfo, time: classTime, id: `${index}-${classInfo.Period}-${classInfo.Time}` };
+          return { ...classInfo, time: classTime};
         });
 
       const currentClass = classesWithTime.find(classInfo => classInfo.time <= currentTime && currentTime < classInfo.time.getTime() + 60 * 60 * 1000); // Assuming class duration is 1 hour
