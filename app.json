@@ -4,7 +4,7 @@
     "slug": "RemindMe_v2",
     "version": "1.1.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icon.jpg",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -16,13 +16,10 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/adaptive-icon.jpg",
         "backgroundColor": "#ffffff"
       },
       "package": "com.biplabroy.RemindMe_v2"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
   }
 }
