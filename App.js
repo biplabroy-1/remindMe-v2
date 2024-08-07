@@ -540,11 +540,35 @@ const App = () => {
     const todayIndex = daysOfWeek.indexOf(new Date().toLocaleDateString('en-US', { weekday: 'long' }));
     let nextClassDay = '';
 
-    for (let i = 1; i < daysOfWeek.length; i++) {
-      const nextIndex = (todayIndex + i) % daysOfWeek.length;
-      if (schedule[daysOfWeek[nextIndex]] && schedule[daysOfWeek[nextIndex]].length > 0) {
-        nextClassDay = daysOfWeek[nextIndex];
-        break;
+    const now = new Date();
+    const isAfter9PM = now.getHours() >= 21;
+
+    if (isAfter9PM) {
+      // If it's after 9 PM, start looking from the next day
+      for (let i = 1; i < daysOfWeek.length; i++) {
+        const nextIndex = (todayIndex + i) % daysOfWeek.length;
+        if (schedule[daysOfWeek[nextIndex]] && schedule[daysOfWeek[nextIndex]].length > 0) {
+          nextClassDay = daysOfWeek[nextIndex];
+          break;
+        }
+      }
+      // If no class is found in the rest of the week, check the next week's first day
+      if (!nextClassDay) {
+        nextClassDay = daysOfWeek[0];
+      }
+    } else {
+      // Check if today has classes
+      if (!schedule[daysOfWeek[todayIndex]] || schedule[daysOfWeek[todayIndex]].length === 0) {
+        // Find the next day with classes
+        for (let i = 1; i < daysOfWeek.length; i++) {
+          const nextIndex = (todayIndex + i) % daysOfWeek.length;
+          if (schedule[daysOfWeek[nextIndex]] && schedule[daysOfWeek[nextIndex]].length > 0) {
+            nextClassDay = daysOfWeek[nextIndex];
+            break;
+          }
+        }
+      } else {
+        nextClassDay = daysOfWeek[todayIndex];
       }
     }
 
@@ -552,7 +576,7 @@ const App = () => {
       setMessage(`Next class day is ${nextClassDay}.`);
       setUpcomingClasses(schedule[nextClassDay]);
     }
-  }, []);
+  }, [schedule]);
 
   const handleOptionPress = async () => {
     const newGroup = selectedGroup === 'Group 1' ? 'Group 2' : 'Group 1';
@@ -565,40 +589,45 @@ const App = () => {
     const day = now.toLocaleDateString('en-US', { weekday: 'long' });
     const currentTime = getCurrentTime();
 
-    const updateClassesForDay = (classesToday) => {
-      const classesWithTime = classesToday
-        .filter((classInfo) => classInfo.Group === selectedGroup || classInfo.Group === 'All')
-        .map((classInfo) => {
-          const [start] = classInfo.Time.split(' - ');
-          const [hour, minute] = start.split(':').map(Number);
-          const classTime = new Date(now);
-          classTime.setHours(hour, minute, 0, 0);
-          return { ...classInfo, time: classTime };
-        });
+    if (now.getHours() >= 21) {
+      // If after 9 PM, use the next day’s schedule
+      findNextClassDay();
+    } else {
+      const updateClassesForDay = (classesToday) => {
+        const classesWithTime = classesToday
+          .filter((classInfo) => classInfo.Group === selectedGroup || classInfo.Group === 'All')
+          .map((classInfo) => {
+            const [start] = classInfo.Time.split(' - ');
+            const [hour, minute] = start.split(':').map(Number);
+            const classTime = new Date(now);
+            classTime.setHours(hour, minute, 0, 0);
+            return { ...classInfo, time: classTime };
+          });
 
-      const currentClass = classesWithTime.find((classInfo) =>
-        classInfo.time <= currentTime && currentTime < classInfo.time.getTime() + 60 * 60 * 1000
-      );
+        const currentClass = classesWithTime.find((classInfo) =>
+          classInfo.time <= currentTime && currentTime < classInfo.time.getTime() + 60 * 60 * 1000
+        );
 
-      const upcoming = classesWithTime
-        .filter((classInfo) => classInfo.time > currentTime)
-        .sort((a, b) => a.time - b.time);
+        const upcoming = classesWithTime
+          .filter((classInfo) => classInfo.time > currentTime)
+          .sort((a, b) => a.time - b.time);
 
-      setUpcomingClasses(currentClass ? [currentClass, ...upcoming] : upcoming);
-      setMessage(currentClass ? 'Current class' : 'No current class');
-      setCurrentClass(currentClass || null);
-    };
+        setUpcomingClasses(currentClass ? [currentClass, ...upcoming] : upcoming);
+        setMessage(currentClass ? 'Current class' : 'No current class');
+        setCurrentClass(currentClass || null);
+      };
 
-    if (schedule[day]) {
-      if (schedule[day].length === 0) {
+      if (schedule[day]) {
+        if (schedule[day].length === 0) {
+          setMessage('No classes today.');
+          findNextClassDay();
+        } else {
+          updateClassesForDay(schedule[day]);
+        }
+      } else {
         setMessage('No classes today.');
         findNextClassDay();
-      } else {
-        updateClassesForDay(schedule[day]);
       }
-    } else {
-      setMessage('No classes today.');
-      findNextClassDay();
     }
   }, [findNextClassDay, selectedGroup]);
 
@@ -648,20 +677,21 @@ const App = () => {
             <Text className={`${currentClass.Class_type === 'Free' ? 'hidden' : ''}`}>UB {currentClass.Building} : {currentClass.Room}</Text>
           </View>
         </View>
-      ) : <View>
-        <View className={`relative mb-4 p-4 border-[1.5px] rounded-xl border-blue-300 bg-blue-50`}>
-          <View className='flex-row justify-between items-center'>
-            <Text className="text-xs font-medium"></Text>
-            <View className={` rounded-full px-3 py-1`}>
-              <Text className='text-white font-bold text-xs'></Text>
+      ) : (
+        <View>
+          <View className={`relative mb-4 p-4 border-[1.5px] rounded-xl border-blue-300 bg-blue-50`}>
+            <View className='flex-row justify-between items-center'>
+              <Text className="text-xs font-medium"></Text>
+              <View className={` rounded-full px-3 py-1`}>
+                <Text className='text-white font-bold text-xs'></Text>
+              </View>
+            </View>
+            <Text className="text-lg text-center font-bold text-slate-900">No Class Running 😴</Text>
+            <View className="flex-row mt-2 justify-between items-center mb-2.5">
             </View>
           </View>
-          <Text className="text-lg text-center font-bold text-slate-900">No Class Running 😴</Text>
-          <View className="flex-row mt-2 justify-between items-center mb-2.5">
-          </View>
         </View>
-      </View>
-      }
+      )}
 
       <View className='flex-row justify-between items-center mb-2'>
         <Button title={`I Am ${selectedGroup !== 'Group 1' ? 'Group 2' : 'Group 1'}`} onPress={handleOptionPress} />
@@ -696,8 +726,8 @@ const App = () => {
         />
       ) : (
         <View className='flex-1 items-center justify-center'>
-          <Text className='text-2xl text-center'>Or Baki</Text>
-          <Text className='text-2xl text-center'>Kal Dekha Jayega</Text>
+          <Text className='text-2xl text-center font-semibold'>Or Baki</Text>
+          <Text className='text-2xl text-center font-semibold'>Kal Dekha Jayega</Text>
         </View>
       )}
       <StatusBar style="auto" />
