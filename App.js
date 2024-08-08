@@ -664,7 +664,7 @@ const App = () => {
 
     if (firstClass) {
       const notificationBody = `${nextDay}'s class at: ${firstClass.New_Time} \n\nCourse: ${firstClass.Course_Name}\nBuilding: ${firstClass.Building} || Room No: ${firstClass.Room}\nInstructor: ${firstClass.Instructor}`;
-      
+
       // Schedule the 9 PM reminder notification
       await Notifications.scheduleNotificationAsync({
         content: {
@@ -778,7 +778,7 @@ const App = () => {
     return () => {
       notificationListener.remove();
     };
-  }, []);
+  }, [selectedGroup]);
 
   const filteredClasses = upcomingClasses
     .filter(item => item.Group === selectedGroup || item.Group === 'All')
